@@ -1,0 +1,402 @@
+/* Typography */
+
+
+  
+  // PX to REM - Usage: font-size: rem(37px);
+  @function rem($px, $base: $base-font-size) {
+	@return ($px / $base) * 1rem;
+  }
+  
+  /*------------------------------------*\
+	  # Simple Typography Settings
+  \*------------------------------------*/
+  
+  // Font Family
+//   font-family: 'Barlow Condensed', sans-serif;
+//   font-family: 'Montserrat', sans-serif;
+  $font-primary   : 'Barlow Condensed', sans-serif;
+  $font-secondary : 'Montserrat', sans-serif;
+  $font-third     : 'Montserrat', sans-serif;
+  
+  // Base Font for HTML
+  $base-font-size: 16px;
+  
+  // Paragraph Styles
+  $paragraph-color      : #5A6570;
+  $paragraph-size       : rem(18px);
+  $paragraph-line-height: 1.5em;
+  $paragraph-margin     : 20px;
+  
+  // Header Styles
+  $header-color      : #2B303A;
+  $header-size       : rem(40px);
+  $header-line-height: 1em;
+  $header-margin     : $paragraph-margin * 1.2;
+  
+  // Blockquote Styles
+  $blockquote-color      : #505050;
+  $blockquote-size       : rem(23px);
+  $blockquote-line-height: 1.5em;
+  $blockquote-margin     : $paragraph-margin * 1.5;
+  
+  // Links
+  $link-color: $f;
+  
+  // hr
+  $hr-margin: 30px;
+  
+  // Type Misc
+  $font-weight-bold: 800;
+  $border-color: #DADADA;
+  
+  /*------------------------------------*\
+	  # Type
+  \*------------------------------------*/
+  
+  // Make type normal across browsers
+  *, html, body {
+	//   font-size: $base-font-size;
+	  font-family: $font-secondary;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	  -webkit-text-size-adjust: 100%;
+	  -ms-text-size-adjust: 100%;
+	  
+  }
+    
+  body{
+    color: rgb(209, 205, 199);
+	background-color: #181a1b;
+}
+  
+  
+  // Headers
+  h1, h2, h3, h4, h5, h6 {
+	  margin-top: $header-margin * 1.5;
+	  color: $header-color;
+	  line-height: $header-line-height;
+	  font-weight: 100;
+	  font-family: $font-primary;
+	  
+  
+	  &:first-child {
+		  margin-top: 0;
+	  }
+  }
+  
+  h1 {
+	  font-size: $header-size;
+	  margin-bottom: $header-margin;
+  }
+  
+  h2 {
+	  font-size: $header-size / 1.3;
+	  margin-bottom: $header-margin / 1.3;
+	  &.sec-title{
+		  color: $f;
+		  font-size: $header-size / .5;
+		  @media screen and (max-width:1100px){
+			  font-size: 4rem;
+		  }
+	  }
+  }
+  
+  h3 {
+	  font-size: $header-size / 1.5;
+	  margin-bottom: $header-margin / 1.5;
+  }
+  
+  h4 {
+	  font-size: $header-size / 1.7;
+	  margin-bottom: $header-margin / 1.7;
+  }
+  
+  h5 {
+	  font-size: $header-size / 1.8;
+	  margin-bottom: $header-margin / 1.8;
+  }
+  
+  h6 {
+	  font-size: $header-size / 2;
+	  margin-bottom: $header-margin / 2;
+  }
+  
+  
+  
+  // Paragraphs
+  p {
+	  margin-bottom: $paragraph-margin;
+	  font-size: $paragraph-size;
+	  line-height: $paragraph-line-height;
+	  color: #d1cdc7;
+  
+	  &:last-of-type {
+		//   margin-bottom: 0;
+	  }
+  }
+  
+  
+  
+  // Links
+  a {
+	  color: $link-color;
+	  transition: all 0.2s ease;
+  
+	  &:hover {
+		  color: darken($link-color, 20%);
+	  }
+  }
+  
+  
+  // Lists
+  ul,
+  ol {
+	  margin: $paragraph-margin 0 20px 20px;
+  
+	  li {
+		  margin-top: 10px;
+		  line-height: $paragraph-line-height;
+		  color: $paragraph-color;
+	  }
+  
+	  ul,
+	  ol {
+		  margin-top: 0;
+	  }
+  }
+  
+  ul {
+  
+	  li {
+		  list-style: disc;
+	  }
+  
+	  ul {
+  
+		  li {
+			  list-style: circle;
+		  }
+	  }
+  }
+  
+  ol {
+  
+	  li {
+		  list-style: decimal;
+	  }
+  }
+  
+  
+  // hr
+  hr {
+	  height: 1px;
+	  margin: $hr-margin 0;
+	  border: none;
+	  background-color: $border-color;
+  }
+  
+  
+  // Blockquote
+  blockquote {
+	  margin: $blockquote-margin 0;
+	  font-size: $blockquote-size;
+	  line-height: $blockquote-line-height;
+	  color: $f;
+	  text-align: center;
+	  font-style: italic;
+  }
+  
+  
+  // Tables
+  table {
+	  width: 100%;
+	  margin: $blockquote-margin 0;
+	  border-collapse: collapse;
+  }
+  
+  table, td, th {
+	  border: 1px solid $border-color;
+	  text-align: left;
+  }
+  
+  th {
+	  font-weight: $font-weight-bold;
+  }
+  
+  th, td {
+	  padding: 15px;
+  }
+  
+  
+  // Figure
+  figure {
+	  margin: $blockquote-margin 0;
+  
+	  img {
+		  margin: 0;
+	  }
+  }
+  
+  figcaption {
+	  margin-top: 10px;
+	  color: lighten($paragraph-color, 10%);
+	  font-size: $paragraph-margin * 0.8;
+  }
+  
+  
+  // Code
+  pre {
+	  display: block;
+	  margin: 0 0 40px 0;
+	  padding: 20px;
+	  background-color: lighten($border-color, 12%);
+	  border: 1px solid $border-color;
+	  overflow: auto;
+	  border-radius: 3px;
+  
+	  code {
+		  position: static;
+		  padding: 0;
+		  border: none;
+		  line-height: 1.5em;
+	  }
+  }
+  
+  code {
+	  position: relative;
+	  top: -0.2em;
+	  padding: 3px;
+	  font-family: Courier New, Courier, monospace;
+	  font-size: $paragraph-size / 1.2;
+	  color: darken($border-color, 70%);
+	  line-height: 1em;
+	  pointer-events: none;
+	  border: 1px solid $border-color;
+	  border-radius: 3px;
+  }
+  
+  
+  
+  // Misc Styles
+  em,
+  i,
+  .italic {
+	  font-style: italic;
+  }
+  
+  strong,
+  b,
+  .bold {
+	  font-weight: $font-weight-bold;
+  }
+  
+  img {
+	  display: block;
+	  max-width: 100%;
+	  margin:  0;
+  }
+  
+  
+  input{
+	&:focus {
+	  outline: none;
+	}
+  }
+  
+  
+  
+  // Input styles
+  @mixin selectStyles {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	
+	width: 100%;
+	text-align: left;
+	padding: 15px 15px;
+  
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+  
+	border: 1px solid #444;
+	border-radius: 0;
+  
+	color: rgba($color: $color-main, $alpha: 1);
+	
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 1px;
+	height: auto;
+	margin-bottom: 10px;
+  }
+  
+  @mixin placeholderText {
+	color: rgba($color: $color-main, $alpha: 1);
+	
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 1px;
+  }
+  
+  input.form-control {
+	@include selectStyles;
+  
+	&::placeholder {
+	  @include placeholderText;
+	}
+  
+	&:hover {
+	  background-color: #fff;
+	  box-shadow: 0 3px 11px 7px rgba(0, 0, 0, 0.11);
+	  color: #37354a;
+	  border-radius: 3px;
+  
+	  &::placeholder {
+		color: #37354a;
+	  }
+	}
+  }
+  
+  select.form-control {
+	background: transparent
+	  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+	  no-repeat right 0.75rem center/8px 10px;
+	@include selectStyles;
+  
+	&::placeholder {
+	  @include placeholderText;
+	}
+  
+	&:hover {
+	  background-color: #fff;
+	  box-shadow: 0 3px 11px 7px rgba(0, 0, 0, 0.11);
+	  color: #37354a;
+	  border-radius: 3px;
+	  &::placeholder {
+		color: #37354a;
+		
+	  }
+	}
+  }
+  
+  textarea.form-control {
+	@include selectStyles;
+	 
+  
+	&::placeholder {
+	  @include placeholderText;
+	}
+  
+	&:hover {
+	  background-color: #fff;
+	  box-shadow: 0 3px 11px 7px rgba(0, 0, 0, 0.11);
+	  color: #37354a;
+	  border-radius: 3px;
+	  &::placeholder {
+		color: #37354a;
+	  }
+	}
+  }
+  

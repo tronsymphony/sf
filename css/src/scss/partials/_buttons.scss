@@ -1,0 +1,483 @@
+/* -------------------------------------------------------------------------- */
+/* BUTTON STYLES */
+/* -------------------------------------------------------------------------- */
+
+// UTILITY
+.mrb {
+  margin-right: 20px;
+}
+span.svg {
+  margin-left: 8px;
+
+  svg {
+    width: 13px;
+    fill: #519db5;
+    position: relative;
+    top: 2px;
+  }
+}
+
+
+@mixin btn-fade {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin beforeState {
+  content: close-quote;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+  // transition-delay: .2s;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+}
+@mixin beforeHvrState {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+}
+
+.btn-container {
+  margin: 20px 0 0;
+  display: flex;
+    flex-direction: column;
+}
+
+.ui-btn.submit-formbtns {
+  min-width: 190px;
+  color: $color-main;
+  // background-color: $color-light-accent;
+  &:before {
+    background: rgba($color-white, 1);
+  }
+  &:hover {
+    // box-shadow: 7px 7px 0px 2px rgb(45, 151, 168);
+    // box-shadow: 0 0 0px 2px rgba($color-white,0);
+    color: $color-white;
+    &:before {
+      background: darken($color-main, 20%);
+    }
+    &:after {
+      left: 140%;
+      width: 80px;
+    }
+  }
+}
+button.ui-btn {
+  background: #705f89;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.ui-btn {
+  font-family: $font-third;
+  font-style: normal;
+  display: inline-flex;
+  max-width: 100%;
+  color: $color-dark;
+  font-size: 15px;
+  // background-color: $color-main;
+  border: none;
+  font-weight: 300;
+  line-height: 16px;
+  position: relative;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 3px;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 15px 0;
+  background: transparent;
+  color: $f;
+  text-decoration: none;
+
+  &:before {
+    content: close-quote;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -15;
+    transition: all 0.8s;
+  }
+
+  &:after {
+    // background: #fff;
+    content:"";
+    height: 100%;
+    left: -0;
+    position: absolute;
+    bottom: 0;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(0deg);
+    -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
+    height:0;
+    z-index: -10;
+    will-change: left;
+    background: #fff;
+  }
+
+  &:hover {
+    color: #090909;
+    padding-left: 20px;
+    padding-right: 20px;
+    &:before {
+      background: #d6ecef;
+    }
+    &:after {
+    }
+  }
+
+  &.submit-formbtn {
+    background-color: $color-dark;
+  }
+
+  &.ui-subscribtn {
+    padding: 11px 5px;
+  }
+
+  &.ui-cloudwhite {
+    background: transparent;
+    color: $color-white;
+    box-shadow: 0 0 0px 1.5px $color-white;
+    padding: 22px 10px;
+    min-width: 270px;
+    // min-width: 150px;
+    text-align: center;
+    justify-content: center;
+
+    &.cw-lg {
+    }
+
+    &:before {
+      @include beforeState;
+      background: transparent;
+      
+    }
+    &:after{
+      background: #fff;
+    }
+
+    &:hover {
+      border: none;
+      box-shadow: none;
+      
+    }
+
+    &:hover:before {
+      box-shadow: 0 0 0px 2px rgba($color-white, 0.8);
+      position: absolute;
+      background: rgba(#fff,.2);
+      @include beforeHvrState;
+    }
+  }
+
+  &.ui-yellowverse {
+    color: $color-white;
+    // background-color: $color-light-accent;
+    &:before {
+      background: rgba(#dbb242, 0);
+    }
+    
+    &:hover {
+      color: #090909;
+      border-color: transparent;
+      color: $color-white;
+
+      // background: rgb(207, 232, 236);
+      &:before {
+        // background: rgba(219,178,66,0);
+        background: rgb(207, 232, 236);
+      }
+      &:after {
+        left: 140%;
+        width: 80px;
+      }
+    }
+  }
+
+  &.ui-brownverse {
+    color: $color-white;
+    // background-color: $color-light-accent;
+    &:before {
+      background: rgba($color-dark, 1);
+    }
+    &:hover {
+      // box-shadow: 7px 7px 0px 2px rgb(45, 151, 168);
+      // box-shadow: 0 0 0px 2px rgba($color-white,0);
+      color: $color-white;
+      &:before {
+        background: darken($color-dark, 20%);
+      }
+      &:after {
+        left: 140%;
+        width: 80px;
+      }
+    }
+  }
+
+  &.ui-btn-input {
+    padding: 0;
+    min-width: 0;
+  }
+
+  &.ui-btn-input input {
+    font-size: inherit;
+    color: inherit;
+    background: inherit;
+    border: none;
+    padding: 0;
+    line-height: inherit;
+    cursor: pointer;
+    padding: 5px 25.5px;
+  }
+
+  &.ui-greenmix {
+    background: transparent;
+    box-shadow: 0 0 0px 2px $color-main;
+    color: $color-main;
+
+    &:before {
+      @include beforeState;
+    }
+
+    &:hover {
+      background: rgba($color-main, 0.8);
+      box-shadow: 0 0 0px 1px rgba($color-white, 0);
+      color: #fff;
+    }
+
+    &:hover:before {
+      box-shadow: 0 0 0px 2px rgba($color-main, 0.8);
+      @include beforeHvrState;
+    }
+  }
+
+  @include btn-fade;
+
+  &.ui-btn-dark-alt {
+    // background-color: $color-light-accent;
+    &:before {
+      background: $color-light-accent;
+    }
+    &:hover {
+      // box-shadow: 7px 7px 0px 2px rgb(45, 151, 168);
+      &:before {
+        background: darken($color-main, 20%);
+      }
+      &:after {
+        left: 140%;
+        width: 80px;
+      }
+    }
+  }
+
+  &.d-block {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    min-width: 206px;
+    color: $color-white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16.5px 5px;
+    transition: all 0.3s ease-in-out;
+    background: $color-main;
+    -webkit-appearance: none;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    &:hover {
+      background: $color-main;
+      color: $color-white;
+      text-decoration: none;
+      box-shadow: 0 0px 0 4px rgba($color-white, 1), 0 0px 0 8px $color-main;
+    }
+  }
+}
+
+.dual-content.skinrej {
+  .ui-btn-whitebg {
+    color: $color-main;
+  }
+}
+
+.form-control {
+  .submit-btn {
+    padding: 5px 5px;
+    border-radius: 0;
+  }
+}
+section.search {
+  .submit-btn.ui-btn.ui-btn-main.ui-btn-dark-alt {
+    padding: 5px 5px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    text-transform: capitalize;
+    font-weight: 300;
+    height: 40px;
+    letter-spacing: 1px;
+    margin: 0 0 0 30px;
+    border: none;
+  }
+}
+
+.ui-btn-main {
+  // background-color: $color-main;
+  // border: 1px solid $color-main;
+  // color: $color-white;
+  // padding: 15px 20px;
+
+  &:hover {
+    border: 1px solid #77b1c300;
+    background-color: #d6ecef;
+    text-decoration: none;
+    color: #090909;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.ui-btn-main-ol {
+  background-color: transparent;
+  border: 1px solid $color-main;
+  color: $color-main;
+
+  &:hover {
+    color: $color-light;
+    border: 1px solid lighten($color-main, 10);
+    background-color: lighten($color-main, 10);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-light {
+  background-color: $color-light;
+  border: 1px solid $color-light;
+  color: $color-dark;
+
+  &:hover {
+    color: $color-dark;
+    background-color: darken($color-light, 15);
+    border: 1px solid darken($color-light, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-light-accent {
+  background-color: $color-main;
+  border: 1px solid $color-main;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: lighten($color-main, 15);
+    border: 1px solid lighten($color-main, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-dark-accent {
+  background-color: $color-dark-accent;
+  border: 1px solid $color-dark-accent;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: lighten($color-dark-accent, 15);
+    border: 1px solid lighten($color-dark-accent, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-extra-light-accent {
+  background-color: $color-light;
+  border: 1px solid $color-light;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-light;
+    border: 1px solid $color-light;
+    text-decoration: none;
+  }
+}
+
+.ui-btn-dark {
+  background-color: $color-dark;
+  border: 1px solid $color-dark;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: lighten($color-dark, 15);
+    border: 1px solid lighten($color-dark, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-light-ol {
+  background-color: transparent;
+  border: 1px solid $color-light;
+  color: $color-light;
+
+  &:hover {
+    color: $color-dark;
+    background-color: rgba($color-light, 0.5);
+    border: 1px solid rgba($color-light, 0.5);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-white {
+  background-color: $color-white;
+  border: 1px solid $color-white;
+  color: $color-main;
+
+  &:hover {
+    color: $color-main;
+    background-color: darken($color-white, 15);
+    border: 1px solid darken($color-white, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-white-ol {
+  background-color: transparent;
+  border: 1px solid $color-white;
+  color: $color-white;
+
+  &:hover {
+    color: $color-main;
+    background-color: darken($color-white, 15);
+    border: 1px solid darken($color-white, 15);
+    text-decoration: none;
+  }
+}
+
+.ui-btn-group {
+  .ui-btn:not(:last-child) {
+    margin-right: 0.85rem;
+  }
+}
+
+.wpforms-submit {
+  position: relative !important;
+  color: $color-white !important;
+  overflow: hidden !important;
+}
